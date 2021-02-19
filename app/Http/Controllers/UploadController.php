@@ -19,12 +19,12 @@ class UploadController extends Controller
 
     public function store(Request $request){
         //dd($request->all());
-        dd($request->nome);
+       // dd($request->nome);
         //$dados = $request->all();
         //Imagem::create($dados);
         //$dados = $request->nome;
-        $dados = $request->only(['nome', 'imagem']);
-        dd($dados);
+        //$dados = $request->only(['nome', 'imagem']);
+       // dd($dados);
         
       if ($request->file('imagem')->isValid()) {
           # code...
@@ -34,10 +34,13 @@ class UploadController extends Controller
          $nome_arqu = $request->nome . "." . $request->imagem->extension();
          $request->file('imagem')->storeAs('img',$nome_arqu); 
 
-
-
-         
       }
+
+      $imagem = Imagem::create([
+        'nome' => $request->nome,
+        'imagem' =>$nome_arqu
+      ]);
+
 
       
 
