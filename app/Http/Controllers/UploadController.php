@@ -31,15 +31,19 @@ class UploadController extends Controller
          // $nome_arquivo = $request->name . "." .$request->imagem->extension();
          //dd($request->file('imagem')->store('img'));
 
-         $nome_arqu = $request->nome . "." . $request->imagem->extension();
+         $nome_arqu = md5($request->imagem->getClientOriginalName().strtotime("now")) . "." .  $request->imagem->extension();
+
          $request->file('imagem')->storeAs('img',$nome_arqu); 
 
       }
+
 
       $imagem = Imagem::create([
         'nome' => $request->nome,
         'imagem' =>$nome_arqu
       ]);
+
+      return back();
 
 
       
