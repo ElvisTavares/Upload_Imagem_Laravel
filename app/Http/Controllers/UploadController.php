@@ -8,7 +8,9 @@ use App\Imagem;
 class UploadController extends Controller
 {
     public function index(){
-        return view('imagem.index');
+        $imagem = Imagem::all();
+
+        return view('imagem.exibe', compact('imagem'));
     }
 
 
@@ -45,13 +47,6 @@ class UploadController extends Controller
 
       return back();
 
-
-      
-
-
-      
-
-   
 
     }
 }
