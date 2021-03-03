@@ -19,4 +19,4 @@ Route::get('/', function () {
 
 Route::get('up', 'UploadController@create');
 Route::post('up', 'UploadController@store');
-Route::get('list', 'UploadController@index');
+Route::get('lists', 'UploadController@index');
