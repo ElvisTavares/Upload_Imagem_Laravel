@@ -1,24 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+            <table>
+            <thead>
+            <tr>
+               
+                
+            </tr>
+            </thead>
 
 
-<table>
-    <thead>
-    <tr>
-       
-        <td>Imagem</td>
-    </tr>
-    </thead>
+        <tbody>
+            @foreach($imagem as $img)
+            <tr>
+             
+              <td> {{$img->nome}}</td>
+
+                <td><img src="{{ url( "storage/img/{$img->imagem}" ) }}" class="rounded" alt="Cinque Terre" width="304" height="236"> </td>
+               <td> <button type="button" class="btn btn-primary">Editar</button> </td>
+
+            </tr>
 
 
-<tbody>
-    @foreach($imagem as $img)
-    <tr>
-     
-     
-        <img src="{{ url( "storage/img/{$img->imagem}" ) }} ">
-        
-    </tr>
+            @endforeach
+        </tbody>
 
-    @endforeach
-</tbody>
+        </table>
 
-</table>
+    </div>
+</body>
+</html>
