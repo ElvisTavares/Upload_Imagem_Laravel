@@ -20,5 +20,5 @@ Route::get('/', function () {
 Route::get('up', 'UploadController@create');
 Route::post('up', 'UploadController@store');
 Route::get('list', 'UploadController@index');
-Route::get('edit_img{id}','UploadController@edit' );
-Route::get('edit_img{id}' , 'UploadController@update');
+Route::get('edit_img/{id}','UploadController@edit' );
+Route::put('edit_img/{id}' , 'UploadController@update');

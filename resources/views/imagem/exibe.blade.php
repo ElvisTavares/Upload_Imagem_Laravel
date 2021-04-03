@@ -23,7 +23,8 @@
               <td> {{$img->nome}}</td>
 
                 <td><img src="{{ url( "storage/img/{$img->imagem}" ) }}" class="rounded" alt="Cinque Terre" width="304" height="236"> </td>
-               <td> <button type="button" class="btn btn-primary">Editar</button> </td>
+               
+               <td> <a href="{{ url('/edit_img', $img->id) }}" class="btn btn-primary"> Editar</a> </td>
 
             </tr>
 
