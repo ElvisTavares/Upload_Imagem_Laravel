@@ -64,6 +64,34 @@ class UploadController extends Controller
 
 
      public function update(Request $request, $id){
-        dd($request);
+        //dd($request);
+
+
+            if ($request->file('imagem')->isValid()) {
+                      # code...
+                     // $nome_arquivo = $request->name . "." .$request->imagem->extension();
+                     //dd($request->file('imagem')->store('img'));
+
+                    //atribui um novo nome para a imagem
+                     $nome_arqu = md5($request->imagem->getClientOriginalName().strtotime("now")) . "." .  $request->imagem->extension();
+
+                     $request->file('imagem')->storeAs('img',$nome_arqu); 
+
+                  }
+
+
+         //  $imagem = $request->all();
+              $id = Imagem::findOrFail($id);
+
+                 $imagem = Imagem::update([
+          'nome' => $request->nome,
+          'imagem' =>$nome_arqu
+        ]);
+
+
+        // $id->update($imagem);
+              
+
+                return back()->with(['success'=>'Editado']);
      }
 }
